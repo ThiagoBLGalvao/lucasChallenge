@@ -34,8 +34,16 @@ class MainActivity : AppCompatActivity() {
                 ContextCompat.getDrawable(this@MainActivity, R.drawable.red_dragon_archfiend)!!
             ),
             User(
-                "Yusei Fudo", "Stardust_Counter", 1230, 10,
-                ContextCompat.getDrawable(this@MainActivity, R.drawable.stardust_dragon)!!
+                "Giorno Giovanna", "Golden_Experience_Requiem", 5030, 334,
+                ContextCompat.getDrawable(this@MainActivity, R.drawable.image_6)!!
+            ),
+            User(
+                "Dio Brando", "Za_warudo_tokio_tomare", 5030, 334,
+                ContextCompat.getDrawable(this@MainActivity, R.drawable.image_4)!!
+            ),
+            User(
+                "Seto Kaiba", "nothing_is_impossible_if_you_are_seto_kaiba", 5030, 334,
+                ContextCompat.getDrawable(this@MainActivity, R.drawable.seto_kaiba)!!
             ),
             User(
                 "Jack Atlas", "Archfiend_Dragon_Grower", 5030, 334,
@@ -85,22 +93,6 @@ class MainActivity : AppCompatActivity() {
                 "Yusei Fudo", "Stardust_Counter", 1230, 10,
                 ContextCompat.getDrawable(this@MainActivity, R.drawable.stardust_dragon)!!
             ),
-            User(
-                "Jack Atlas", "Archfiend_Dragon_Grower", 5030, 334,
-                ContextCompat.getDrawable(this@MainActivity, R.drawable.red_dragon_archfiend)!!
-            ),
-            User(
-                "Yusei Fudo", "Stardust_Counter", 1230, 10,
-                ContextCompat.getDrawable(this@MainActivity, R.drawable.stardust_dragon)!!
-            ),
-            User(
-                "Jack Atlas", "Archfiend_Dragon_Grower", 5030, 334,
-                ContextCompat.getDrawable(this@MainActivity, R.drawable.red_dragon_archfiend)!!
-            ),
-            User(
-                "Yusei Fudo", "Stardust_Counter", 1230, 10,
-                ContextCompat.getDrawable(this@MainActivity, R.drawable.stardust_dragon)!!
-            )
         )
     }
 }

@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         val rclView = findViewById<RecyclerView>(R.id.rclvGitRepositories)
 
-        val adapter: UserAdapter = UserAdapter(fillListUsers())
+        val adapter = UserAdapter(fillListUsers())
 
         rclView.layoutManager = LinearLayoutManager(this)
 

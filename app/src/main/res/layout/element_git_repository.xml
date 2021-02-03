@@ -71,6 +71,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="2dp"
+            android:scaleType="fitCenter"
             android:contentDescription="@string/staricon"
             app:layout_constraintEnd_toStartOf="@+id/txtStarsNumber"
             app:layout_constraintStart_toStartOf="parent"
@@ -84,6 +85,7 @@
             android:layout_marginEnd="2dp"
             android:contentDescription="@string/forkicon"
             android:layout_marginTop="30dp"
+            android:scaleType="fitCenter"
             app:layout_constraintEnd_toStartOf="@+id/txtForksNumber"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/fork" />

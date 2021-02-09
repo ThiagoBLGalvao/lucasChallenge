@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- se tu executar tu vai ver que tem duas Toolbars -->
+    <!-- pesquise sobre styles NoToolbar ou tu pode remover ela
+    daqui e configurar as informacões dela no código -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"

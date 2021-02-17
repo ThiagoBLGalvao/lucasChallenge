@@ -17,7 +17,10 @@ class UserAdapter(private val usersList: List<User>) :
     }
 
     override fun onBindViewHolder(holder: UserHolder, position: Int) {
+        //TODO: procurar a diferenca de val e var
         var item = usersList[position]
+        //TODO: Geralmente essa definicão fica dentro do ViewHolder, geralmente a gente chama uma
+        // funcão bind passando o item selecionado na linha acima
         holder.name.text = item.name
         holder.repositoryName.text = item.repositoryName
         holder.forks.text = item.forksNumber.toString()

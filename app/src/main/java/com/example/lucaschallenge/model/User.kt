@@ -7,6 +7,6 @@ data class User(
     val repositoryName: String,
     val forksNumber: Int,
     val starsNumber: Int,
+    // TODO: emelhor usar Int nesse caso
     val avatar: Drawable
-) {
-}
+)

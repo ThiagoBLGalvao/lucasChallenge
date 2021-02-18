@@ -8,7 +8,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lucaschallenge.model.User
 
-class UserAdapter(private val usersList: List<User>) :
+class UserAdapter(
+    private val usersList: List<User>,
+    private val showUserNameByToast: ( User) -> Unit
+) :
     RecyclerView.Adapter<UserAdapter.UserHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserHolder {
         val view = LayoutInflater.from(parent.context)
@@ -17,16 +20,7 @@ class UserAdapter(private val usersList: List<User>) :
     }
 
     override fun onBindViewHolder(holder: UserHolder, position: Int) {
-        //TODO: procurar a diferenca de val e var
-        val item = usersList[position]
-        //TODO: Geralmente essa definicão fica dentro do ViewHolder, geralmente a gente chama uma
-        // funcão bind passando o item selecionado na linha acima
-        holder.name.text = item.name
-        holder.repositoryName.text = item.repositoryName
-        holder.forks.text = item.forksNumber.toString()
-        holder.stars.text = item.starsNumber.toString()
-        holder.avatarImage.setImageDrawable(item.avatar)
-
+        holder.fillUpTheView(usersList[position], showUserNameByToast)
     }
 
     override fun getItemCount(): Int {
@@ -34,11 +28,23 @@ class UserAdapter(private val usersList: List<User>) :
     }
 
     class UserHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val name: TextView = itemView.findViewById(R.id.txtAutorName)
-        val repositoryName: TextView = itemView.findViewById(R.id.txtRepositoryName)
-        val stars: TextView = itemView.findViewById(R.id.txtStarsNumber)
-        val forks: TextView = itemView.findViewById(R.id.txtForksNumber)
-        val avatarImage: ImageView = itemView.findViewById(R.id.imgAvatarPhoto)
+        private val name: TextView = itemView.findViewById(R.id.txtAutorName)
+        private val repositoryName: TextView = itemView.findViewById(R.id.txtRepositoryName)
+        private val stars: TextView = itemView.findViewById(R.id.txtStarsNumber)
+        private val forks: TextView = itemView.findViewById(R.id.txtForksNumber)
+        private val avatarImage: ImageView = itemView.findViewById(R.id.imgAvatarPhoto)
+        
+        fun fillUpTheView(user: User, showUserNameByToast: (user: User) -> Unit) {
+            name.text = user.name
+            repositoryName.text = user.repositoryName
+            forks.text = user.forksNumber.toString()
+            stars.text = user.starsNumber.toString()
+            avatarImage.setImageDrawable(user.avatar)
+            itemView.setOnClickListener { 
+                showUserNameByToast(user)
+            }
+
+        }
     }
 
 }

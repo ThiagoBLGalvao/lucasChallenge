@@ -2,6 +2,7 @@ package com.example.lucaschallenge
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,16 +16,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        userAdapter = UserAdapter(fillListUsers())
+        userAdapter = UserAdapter(fillListUsers()) { user -> showUserNameByToast(user) }
 
-        with(rclView){
-            rclView = findViewById(R.id.rclvGitRepositories)
-
+        rclView = findViewById(R.id.rclvGitRepositories)
+        rclView.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
 
             adapter = userAdapter
-
         }
+    }
+
+    private fun showUserNameByToast(user: User){
+        Toast.makeText(this@MainActivity, user.name, Toast.LENGTH_SHORT).show()
     }
 
     // TODO: procurar sobre o padrão de projeto factory para criar blocos de teste

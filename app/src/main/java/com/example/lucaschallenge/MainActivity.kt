@@ -2,30 +2,29 @@ package com.example.lucaschallenge
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lucaschallenge.model.User
 
-//TODO: pesquise pelo apply ou o with do koltin, com eles tu pode melhorar muito seu codigo
-//TODO: criar metodos para cada acao feita no onCreate, deixe ele mais limpo
-//TODO: procure usar os outros metodos do ciclo de vida
-//TODO: organizar melhor o seu código
-//TODO: evitar usar o !!
+lateinit var rclView: RecyclerView
+lateinit var userAdapter: UserAdapter
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val rclView = findViewById<RecyclerView>(R.id.rclvGitRepositories)
+        userAdapter = UserAdapter(fillListUsers())
 
-        val adapter = UserAdapter(fillListUsers())
-        //TODO: usar callback para o click no item
-        rclView.layoutManager = LinearLayoutManager(this)
+        with(rclView){
+            rclView = findViewById(R.id.rclvGitRepositories)
 
-        rclView.adapter = adapter
+            layoutManager = LinearLayoutManager(this@MainActivity)
 
+            adapter = userAdapter
 
+        }
     }
 
     // TODO: procurar sobre o padrão de projeto factory para criar blocos de teste

@@ -4,4 +4,6 @@
     <string name="staricon">StarIcon</string>
     <string name="avatar_image">Avatar Image</string>
     <string name="close">CLOSE</string>
+    <string name="share">Share</string>
+    <string name="favorite">Favorite</string>
 </resources>

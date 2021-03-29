@@ -10,7 +10,8 @@ import com.example.lucaschallenge.model.User
 
 class UserAdapter(
     private val usersList: List<User>,
-    private val showUserNameByToast: ( User) -> Unit
+
+    private val showUserNameByToast: (User) -> Unit
 ) :
     RecyclerView.Adapter<UserAdapter.UserHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserHolder {
@@ -34,7 +35,7 @@ class UserAdapter(
         private val forks: TextView = itemView.findViewById(R.id.txtForksNumber)
         private val avatarImage: ImageView = itemView.findViewById(R.id.imgAvatarPhoto)
         
-        fun fillUpTheView(user: User, showUserNameByToast: (user: User) -> Unit) {
+        fun fillUpTheView(user: User, showUserNameByToast: (User) -> Unit) {
             name.text = user.name
             repositoryName.text = user.repositoryName
             forks.text = user.forksNumber.toString()

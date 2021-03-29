@@ -16,7 +16,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        userAdapter = UserAdapter(fillListUsers()) { user -> showUserNameByToast(user) }
+        val showUserNameByToast: (User)->Unit ={
+            Toast.makeText(this@MainActivity, it.name, Toast.LENGTH_SHORT).show()
+        }
+
+        userAdapter = UserAdapter(fillListUsers(),  showUserNameByToast)
 
         rclView = findViewById(R.id.rclvGitRepositories)
         rclView.apply {
@@ -26,9 +30,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showUserNameByToast(user: User){
-        Toast.makeText(this@MainActivity, user.name, Toast.LENGTH_SHORT).show()
-    }
+//    private fun showUserNameByToast(user: User){
+//        Toast.makeText(this@MainActivity, user.name, Toast.LENGTH_SHORT).show()
+//    }
 
     // TODO: procurar sobre o padrão de projeto factory para criar blocos de teste
     private fun fillListUsers(): List<User> {

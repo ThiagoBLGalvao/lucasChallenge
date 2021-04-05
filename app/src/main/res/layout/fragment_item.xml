@@ -7,6 +7,7 @@
     android:background="@color/navy_blue">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cvCardContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/straight_4"
@@ -14,7 +15,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        tools:visibility="visible">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -43,19 +46,6 @@
                 android:textSize="@dimen/straight_text_size_2"
                 app:layout_constraintStart_toEndOf="@id/ivLogo"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Title test" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvSubTitle"
-                style="@style/TextAppearance.MaterialComponents.Subtitle1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/straight_4"
-                android:layout_marginTop="@dimen/straight_2"
-                android:textColor="@color/pewter"
-                android:textSize="@dimen/straight_text_size_1"
-                app:layout_constraintStart_toEndOf="@id/ivLogo"
-                app:layout_constraintTop_toBottomOf="@id/tvTitle"
                 tools:text="Title test" />
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -87,7 +77,7 @@
                 android:id="@+id/shareButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="none"
+                android:backgroundTint="@color/white"
                 android:drawableStart="@drawable/ic_fav"
                 android:drawablePadding="@dimen/straight_2"
                 android:text="@string/favorite"
@@ -100,7 +90,7 @@
                 android:id="@+id/faveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="none"
+                android:backgroundTint="@color/white"
                 android:drawableStart="@drawable/ic_share"
                 android:text="@string/share"
                 android:layout_marginEnd="@dimen/straight_3"
@@ -109,4 +99,10 @@
                 app:layout_constraintTop_toBottomOf="@id/descriptionRepoText" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+    <include
+        android:id="@+id/error_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/error_fragment_layout"
+        android:visibility="gone"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

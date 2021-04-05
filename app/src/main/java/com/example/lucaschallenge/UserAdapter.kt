@@ -5,13 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.lucaschallenge.model.User
+import com.example.lucaschallenge.model.classes.User
 
 class UserAdapter(
     private val usersList: List<User>,
 
-    private val showUserNameByToast: (User) -> Unit
+    private val openItem: (User) -> Unit
 ) :
     RecyclerView.Adapter<UserAdapter.UserHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserHolder {
@@ -21,7 +22,7 @@ class UserAdapter(
     }
 
     override fun onBindViewHolder(holder: UserHolder, position: Int) {
-        holder.fillUpTheView(usersList[position], showUserNameByToast)
+        holder.fillUpTheView(usersList[position], openItem)
     }
 
     override fun getItemCount(): Int {
@@ -34,17 +35,28 @@ class UserAdapter(
         private val stars: TextView = itemView.findViewById(R.id.txtStarsNumber)
         private val forks: TextView = itemView.findViewById(R.id.txtForksNumber)
         private val avatarImage: ImageView = itemView.findViewById(R.id.imgAvatarPhoto)
-        
-        fun fillUpTheView(user: User, showUserNameByToast: (User) -> Unit) {
+        private val repoItem: CardView = itemView.findViewById(R.id.cvRepoItem)
+
+        fun fillUpTheView(user: User, openItem: (User) -> Unit) {
             name.text = user.name
             repositoryName.text = user.repositoryName
             forks.text = user.forksNumber.toString()
             stars.text = user.starsNumber.toString()
-            avatarImage.setImageDrawable(user.avatar)
-            itemView.setOnClickListener { 
-                showUserNameByToast(user)
+            avatarImage.setImageResource(user.avatar)
+            itemView.setOnClickListener {
+                openItem(user)
             }
+            shapeSelector(user.forksNumber)
+        }
 
+        private fun shapeSelector(forksNumber: Int) {
+            when (forksNumber) {
+                in 0..10 -> repoItem.setBackgroundResource(R.drawable.red_shape)
+
+                in 11..60 -> repoItem.setBackgroundResource(R.drawable.yellow_shape)
+
+                else -> repoItem.setBackgroundResource(R.drawable.blue_shape)
+            }
         }
     }
 

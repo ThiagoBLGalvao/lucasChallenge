@@ -8,6 +8,10 @@
     <dimen name="straight_6">64dp</dimen>
     <dimen name="straight_7">128dp</dimen>
     <dimen name="straight_8">256dp</dimen>
+    <dimen name="straight_9">3dp</dimen>
+    <dimen name="straight_10">6dp</dimen>
+    <dimen name="straight_11">9dp</dimen>
+    <dimen name="straight_12">12dp</dimen>
     <dimen name="image_max_heig">234dp</dimen>
     <dimen name="video_straight_1">200dp</dimen>
     <dimen name="straight_text_size_1">12sp</dimen>

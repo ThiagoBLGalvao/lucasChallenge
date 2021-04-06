@@ -8,20 +8,21 @@ import com.example.lucaschallenge.fragment.listItem.ItemDetailedFragmentContract
 import com.example.lucaschallenge.fragment.listItem.ItemDetailedFragmentPresenter
 import com.example.lucaschallenge.model.repository.RepositoryUser
 import com.example.lucaschallenge.model.repository.RepositoryUserDate
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
 val appModule = module{
     single<RepositoryUserDate>{ RepositoryUser() }
 
-    factory<ItemDetailedFragmentContract.IItemDetailedFragmentPresenter> {
-        (fragment: ItemDetailedFragmentContract.IItemDetailedFragment)-> ItemDetailedFragmentPresenter(fragment)
+    factory<ItemDetailedFragmentContract.IItemDetailedFragmentPresenter> { (fragment: ItemDetailedFragmentContract.IItemDetailedFragment) ->
+        ItemDetailedFragmentPresenter(fragment)
     }
 
-    factory<FragmentContract.Presenter>{
-        (fragment: FragmentContract.Fragment)->PresenterRepoListFragmentImpl(fragment)
+    factory<FragmentContract.Presenter>{ (fragment: FragmentContract.Fragment) ->
+        PresenterRepoListFragmentImpl(fragment)
     }
 
-    factory<Contract.Presenter>{
-            (view: Contract.View) -> PresenterMainActivityImpl(view, get())
+    factory<Contract.Presenter>{ (view: Contract.View) ->
+        PresenterMainActivityImpl(view, get())
     }
 }
